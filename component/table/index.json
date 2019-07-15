@@ -1,0 +1,15 @@
+{
+  "component": true,
+  "usingComponents": {
+    "rows": "./rows",
+    "thead": "./thead"
+  },
+  "componentGenerics": {
+    "th": {
+      "default": "./table-item/th"
+    },
+    "td": {
+      "default": "./table-item/td"
+    }
+  }
+}

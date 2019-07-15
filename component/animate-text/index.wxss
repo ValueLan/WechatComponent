@@ -1,0 +1,12 @@
+.__animate-box-root {
+  transition: height 0.25s;
+  overflow: hidden;
+}
+
+.__animate-text-showfull>view {
+  -webkit-line-clamp: initial !important;
+}
+
+.__animate-text-loading{
+  overflow: hidden;
+}

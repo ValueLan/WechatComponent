@@ -1,0 +1,107 @@
+<!--miniprogram_npm/components/ui/list/item.wxml-->
+<block>
+  <view class='card-box {{last ? "" : "margin-bottom"}}' bindtap="gotoDetail">
+    <view class='card-box-content interact-item' wx:if="{{data.answer_type == 'image'}}">
+      <view class="title" >
+        <view>{{data.question}}</view>
+      </view>
+      <view class="content">
+        <view class="avatar">
+          <image src="{{data.company_logo}}" mode="aspectFit"></image>
+        </view>
+        <view class="main-content">
+          <view class="replay-sign">回复：</view>
+          <view class="replay-image">
+            <view>查看完整内容</view>
+            <image src="{{bitsrc}}" mode="aspectFill"></image>
+          </view>
+          <view class="interact-item-bar">
+            <view>{{data.answer_time}}</view>
+            <view wx:if="{{data.tab == 'rejected'}}" bindtap="deleteData">
+              <text class="delete-btn">删除</text>
+            </view>
+            <view wx:elif="{{data.tab != 'notreply'}}">
+              <view catchtap="fixedChange">
+                <image src="/images/share-icon.png" />
+              </view>
+              <view>
+                <image catchtap="switchLike" src="/images/diag{{data.qa_like_status == '1' ? '-selected' : ''}}.png" />
+                <text>{{data.like_count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='card-box-content interact-item' wx:else>
+      <view class="title">
+        <view>{{data.question}}</view>
+      </view>
+      <view class="content">
+        <view class="avatar" wx:if="{{data.tab != 'notreply'}}">
+          <image src="{{data.company_logo}}" mode="aspectFit"></image>
+        </view>
+        <view class="main-content">
+          <view class="replay-sign" wx:if="{{data.tab != 'notreply'}}">
+            <text wx:if="{{data.tab == 'rejected'}}" style="color: #ccc">上市公司拒绝回答您的问题</text>
+            <block wx:else>回复：</block>
+          </view>
+          <view class="replay-content" wx:if="{{data.tab != 'notreply' || data.tab != 'rejected'}}">
+            <rich-text nodes="{{data.answer}}"></rich-text>
+          </view>
+          <view class="interact-item-bar">
+            <view wx:if="{{data.tab == 'replyed'}}">回复时间：{{data.create_time}}</view>
+            <view wx:elif="{{data.tab == 'notreply'}}">提问时间：{{data.create_time}}</view>
+            <view wx:elif="{{data.tab == 'rejected'}}">拒绝时间：{{data.create_time}}</view>
+            <view wx:else>{{data.answer_time}}</view>
+            <view wx:if="{{data.tab == 'rejected'}}" bindtap="deleteData">
+              <text class="delete-btn">删除</text>
+            </view>
+            <view wx:elif="{{data.tab != 'notreply'}}">
+              <view catchtap="fixedChange">
+                <image src="/images/share-icon.png" />
+              </view>
+              <view>
+                <image catchtap="switchLike" src="/images/diag{{data.qa_like_status == '1' ? '-selected' : ''}}.png" />
+                <text>{{data.like_count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='card-box margin-bottom'>
+     <view class='card-box-content interact-item'>
+      <view class="title">{{data.question}}</view>
+      <view class="content">
+        <view class="avatar">
+          <image src="http://xcxgs.liduxinxi.com/images/interact/u7443.png"></image>
+        </view>
+        <view>回复：</view>
+        <view class="replay-audio">
+          <text>播放音频：10''20</text>
+          <image src="/images/wave.png"></image>
+        </view>
+        <view class="interact-item-bar">
+          <view>05-26 19: 00</view>
+          <view>
+            <view>
+              <image src="/images/share-icon.png" />
+            </view>
+            <view>
+              <image src="/images/diag.png" />
+              <text>999</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>-->
+  <block wx:if="{{data.answer_type == 'normal'}}">
+      <share2 wx:if="{{data && showFixed}}" bindtap="fixedChange" sid="{{data.id}}" time="{{data.create_time}}" author="{{data.source}}" share="{{data.qrcode}}" title="{{data.question}}" text="互动" icon="1" content="{{data.answer}}" companylogo="{{data.company_logo}}" company="{{data.company_name}}" companyCode="{{data.stock_code + '.' + data.market_format}}" />
+  </block>
+  <block wx:else>
+    <share3 wx:if="{{data && showFixed}}" bindtap="fixedChange" sid="{{data.id}}" share="{{data.qrcode}}" title="{{data.question}}" text="互动" icon="1" companylogo="{{data.company_logo}}" company="{{data.company_name}}" companyCode="{{data.stock_code + '.' + data.market_format}}" />
+  </block>
+</block>

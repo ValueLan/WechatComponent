@@ -1,0 +1,22 @@
+module.exports = {
+  getHeight: function(status, show, styles, originHeight, fullHeight) {
+    // -1 未加载 0: 加载最小高 1: 加载最大高 2:加载完成
+    switch (status) {
+      case 0:
+        return styles;
+      case 1:
+        return '';
+    }
+    if (show) return 'height:' + fullHeight + 'px;';
+    return 'height:' + originHeight + 'px;'
+  },
+  getClass: function(status) {
+    switch (status) {
+      case 0:
+        return '__animate-text-loading';
+      case 1:
+        return '__animate-text-showfull __animate-text-loading';
+    }
+    return '__animate-text-showfull __animate-box-root';
+  }
+}

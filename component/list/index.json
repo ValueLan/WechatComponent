@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ui-status": "../status/index"
+  },
+  "componentGenerics": {
+    "item": {
+      "default": "./item"
+    }
+  }
+}

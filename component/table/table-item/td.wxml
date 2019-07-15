@@ -1,0 +1,10 @@
+<wxs src="../index.wxs" module="tools" />
+
+<view class='table-td-box' style='{{data._style && data._style[column.key] ? data._style[column.key] : ""}}'>
+  <block wx:if="{{tools.isArray(data[column.key])}}">
+    <view wx:for="{{data[column.key]}}" style='{{item._style ? item._style : ""}}' wx:for-item="item" wx:for-index="index" wx:key="index">{{item.value ? item.value : item}}</view>
+  </block>
+  <block wx:else>
+    {{data[column.key]}}
+  </block>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/demo/table-item/th.wxml-->
+<wxs src="../index.wxs" module="tools" />
+<view class='th-box' bindtap="sortChange">
+  <text>{{data.title}}</text>
+  <image class="sort-img" wx:if="{{data.sort}}"  src="{{tools.getSortIcon(sort, data)}}"></image>
+  <view class='check-box {{data.check.value ? "check-color" : ""}}' wx:if="{{data.check}}" bindtap="changeCheck">
+    <image src="{{data.check.value ? './images/check.png' : './images/uncheck.png'}}"></image>
+    <text>{{data.check.text}}</text>
+  </view>
+</view>

@@ -1,0 +1,96 @@
+/* components/table/index.wxss */
+
+.table-container {
+  width: 100%;
+  display: flex;
+}
+
+.table-container-box {
+  overflow: hidden;
+  flex: 1;
+}
+
+.table-container-box.fixed {
+  flex: none;
+  position: relative;
+  z-index: 999999;
+  box-shadow: 10rpx 20rpx 20rpx rgba(0, 0, 0, 0.047);
+}
+
+.table-container scroll-view {
+  width: 100%;
+  height: 100%;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  position: relative;
+}
+
+.table-body-row {
+  display: flex;
+  padding: 0;
+  height: 100%;
+}
+
+.table-body-row > view {
+  padding: 20rpx 13rpx;
+  flex: none;
+  word-break: break-all;
+  font-weight: bold;
+}
+
+rows:nth-of-type(odd) .table-body-row,
+rows:nth-of-type(odd) .table-body-row > view {
+  background: rgb(249, 250, 251);
+}
+
+.table-header {
+  font-size: 22rpx;
+  background: #fff;
+}
+
+.table-header > view {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.table-container-fixed .table-header > view:first-of-type {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.table-container-fixed .table-header > view:last-of-type {
+  display: block;
+}
+
+.table-header > view:last-of-type {
+  display: none;
+}
+
+.table-header > view > view {
+  min-width: 50rpx;
+  color: #6f7c97;
+  flex: none;
+  background: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 13rpx;
+}
+
+.table-header > view > view >th {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+}
+
+.table-fisrt-bold .table-body .table-body-row>view:first-of-type {
+  font-weight: normal;
+}

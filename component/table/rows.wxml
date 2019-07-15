@@ -1,0 +1,3 @@
+<view id="rows-view" style='{{height ? "height: " + height + "px;": ""}} '>
+  <slot />
+</view>

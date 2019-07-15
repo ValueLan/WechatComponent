@@ -1,0 +1,157 @@
+@import "../../../../common.wxss";
+
+.interact-item {
+  padding: 30rpx;
+}
+
+.margin-bottom {
+  margin-bottom: 40rpx;
+}
+
+.interact-item .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 0 0 25rpx;
+  position: relative;
+}
+
+.interact-item .title>view {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.interact-item .title::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  transform-origin: 0 0;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  border-bottom: 1px solid #ededed;
+}
+
+.interact-item .content {
+  padding: 0;
+  position: relative;
+  font-size: 30rpx;
+  margin: 15rpx 0 0;
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.interact-item .content .avatar {
+  width: 50rpx;
+  height: 50rpx;
+  flex: none;
+  border-radius: 50%;
+  border: 1rpx solid #eee;
+  margin: 0 30rpx 0 0;
+}
+
+.replay-content {
+  color: #797979;
+  margin: 10rpx 0 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.replay-audio {
+  margin: 20rpx 0 20rpx;
+  width: 100%;
+  height: 80rpx;
+  border-radius: 16rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.09);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #797979;
+  padding: 0 20rpx 0 30rpx;
+}
+
+.replay-audio image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.replay-audio::before {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+  transform-origin: 0 0;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: inherit;
+}
+
+.interact-item-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interact-item-bar > view {
+  display: flex;
+  align-items: center;
+}
+
+.interact-item-bar > view > view {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 15rpx;
+}
+
+.interact-item-bar >view >view > image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.replay-image {
+  width: 100%;
+  height: 130rpx;
+  position: relative;
+  margin: 30rpx 0 10rpx;
+}
+
+.replay-image view {
+  position: absolute;
+  padding: 0 20rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  color: #0561dd;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 60rpx;
+  box-shadow: 0px 0px 20px rgba(40, 40, 40, 0.09);
+  font-size: 26rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.delete-btn {
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  border-radius: 40rpx;
+  background: #fce9e9;
+  color: #df2a2a;
+  font-size: 26rpx;
+}

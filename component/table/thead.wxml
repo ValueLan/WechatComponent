@@ -1,0 +1,7 @@
+<wxs src="./index.wxs" module="tools" />
+<view class='table-header {{data.fixed ? "table-container-fixed" : ""}}'>
+  <view style='{{tools.getFixedHeadStyle(data.fixed, data.scrollLeft, fixHeadWidth)}}'>
+    <slot /> 
+  </view>
+  <view></view>
+</view>

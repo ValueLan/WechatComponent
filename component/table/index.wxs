@@ -1,0 +1,44 @@
+function formatStyle(item) {
+  var res = ''
+  if (item.width !== undefined) {
+    res += "width:" + item.width + ";";
+  } else {
+    res += "flex: 1;";
+  }
+  if (item.align == "right") {
+    res += "justify-content: flex-end; text-align: right;";
+  }
+  return res;
+}
+
+function getFixedHeadStyle(fixed, scrollLeft, fixHeadWidth) {
+  if (!fixed) return "";
+  var res = "transform: translate3d(-" + scrollLeft + "px, 0, 0);";
+  if (fixHeadWidth) {
+    res += "width: " + fixHeadWidth + "px; ";
+  }
+  return res
+}
+
+function getSortIcon(sort, data) {
+  if (sort && sort[data.key] == "asc") return './images/sort-up.png';
+  if (sort && sort[data.key] == "desc") return './images/sort-down.png';
+  return './images/sort.png';
+}
+
+function isArray(data) {
+  return typeof(data) == 'object' && data.length > 0; 
+}
+
+
+function getFixedHeadData(fixed, scrollLeft, fixHeadWidth) {
+  return { fixed: fixed, scrollLeft: scrollLeft, fixHeadWidth: fixHeadWidth}
+}
+
+module.exports = {
+  formatStyle: formatStyle,
+  getSortIcon: getSortIcon,
+  getFixedHeadStyle: getFixedHeadStyle,
+  isArray: isArray,
+  getFixedHeadData: getFixedHeadData
+}

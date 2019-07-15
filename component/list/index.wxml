@@ -1,0 +1,9 @@
+<ui-status style="min-height: 450rpx; height: inherit" msg="{{err.msg}}" type="{{err.type}}" show="{{firstLoading}}">
+  <view class="component-container">
+    <item wx:for="{{origin}}" wx:key="item.id" wx:for-index="index" wx:for-item="item" data="{{item}}" binddispatch="dispatch" last="{{origin.length == index + 1}}" index="{{index}}" binddestory="destory" />
+    <view class="loading" wx:if="{{hasNext}}">
+      <text>加载中</text>
+    </view>
+    <view class="has-next-box" wx:else>没有更多数据</view>
+  </view>
+</ui-status>

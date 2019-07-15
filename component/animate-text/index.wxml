@@ -1,0 +1,6 @@
+<wxs src="./index.wxs" module="tools" />
+<view style="{{status != 2 ? 'height: 0; overflow: hidden;' : ''}}">
+  <view id='animate-box' style='{{tools.getHeight(status, show, styles, originHeight, fullHeight)}}' class='{{tools.getClass(status)}}'>
+    <slot />
+  </view>
+</view>

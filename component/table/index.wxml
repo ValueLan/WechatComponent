@@ -1,0 +1,48 @@
+<wxs src="./index.wxs" module="tools" />
+<view class="table-container  {{fixed ? 'table-container-fixed' : ''}}" id="root-box">
+  <view class='table-container-box fixed table-fisrt-bold' wx:if="{{fixedColumn.length > 0}}">
+    <view class='table-header'>
+      <view>
+        <view wx:for="{{fixedColumn}}" wx:for-item="columnItem" wx:key="columnItem.key" style='{{tools.formatStyle(columnItem)}}'>
+          <th data="{{columnItem}}" bindsortchange="sortchange" sort="{{sort}}" dispatchEvent="{{dispatchEvent}}" />
+        </view>
+      </view>
+      <view></view>
+    </view>
+    <view class='table-body'>
+      <rows wx:for="{{data}}" data="{{item}}" bindsync="updateRows" index="{{index}}" wx:for-item="item" wx:key="item.id" wx:for-index="index">
+        <view class='table-body-row'>
+          <view wx:for="{{fixedColumn}}" wx:for-item="columnItem" wx:key="columnItem.key" style='{{tools.formatStyle(columnItem)}}'>
+            <td data="{{item}}" column="{{columnItem}}" dispatchEvent="{{dispatchEvent}}" />
+          </view>
+        </view>
+      </rows>
+    </view>
+  </view>
+  <view class='table-container-box {{fixedColumn.length == 0 ? "table-fisrt-bold" : ""}}'>
+    <scroll-view scroll-x='true' bindscroll="scrollView">
+      <thead fixHeadWidth="{{fixHeadWidth}}" id="thead">
+        <view wx:for="{{normalColumn}}" wx:for-item="columnItem" id="scroll-head-item" wx:key="columnItem.key" style='{{tools.formatStyle(columnItem)}}'>
+          <th data="{{columnItem}}" bindsortchange="sortchange" sort="{{sort}}" dispatchEvent="{{dispatchEvent}}"></th>
+        </view>
+      </thead>
+      <!-- <view class='table-header' wx:if="{{false}}">
+        <view style='{{tools.getFixedHeadStyle(fixed, scrollLeft, fixHeadWidth)}}'>
+          <view wx:for="{{normalColumn}}" wx:for-item="columnItem" id="scroll-head-item" wx:key="columnItem.key" style='{{tools.formatStyle(columnItem)}}'>
+            <th data="{{columnItem}}" bindsortchange="sortchange" sort="{{sort}}" dispatchEvent="{{dispatchEvent}}"></th>
+          </view>
+        </view>
+        <view></view>
+      </view> -->
+      <view class='table-body'>
+        <rows bindsync="updateRows" data="{{item}}" index="{{index}}" wx:for="{{data}}" wx:for-item="item" wx:key="item.id" wx:for-index="index">
+          <view class='table-body-row'>
+            <view wx:for="{{normalColumn}}" wx:for-item="columnItem" wx:key="columnItem.key" style='{{tools.formatStyle(columnItem)}}'>
+              <td data="{{item}}" column="{{columnItem}}" dispatchEvent="{{dispatchEvent}}" />
+            </view>
+          </view>
+        </rows>
+      </view>
+    </scroll-view>
+  </view>
+</view>
